@@ -6,8 +6,48 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .movie {
+            display: inline-block;
+            margin: 0 30px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            width: 200px;
+            padding: 20px;
+            background-color: #cfd7e0;
+            font-family: "Arial" ,serif;
+        }
+
+        #app {
+            max-width: fit-content;
+            margin: 100px auto 0;
+        }
+    </style>
 </head>
 <body>
 <div id="app"></div>
+
+<script type="text/babel">
+    const Movie = (props) => {
+        return (
+            <div className="movie">
+                <img width="200" src={props.img} alt={`Movie ${props.name}`}/>
+                <h1>{props.name}</h1>
+                <p>Release year: {props.year}</p>
+            </div>
+        );
+    };
+
+    const movie = (
+        <>
+            <Movie img="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" name="Inception" year="2010"/>
+            <Movie img="https://m.media-amazon.com/images/M/MV5BMzU3YWYwNTQtZTdiMC00NjY5LTlmMTMtZDFlYTEyODBjMTk5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" name="Tenet" year="2020"/>
+            <Movie img="https://upload.wikimedia.org/wikipedia/en/4/4a/Oppenheimer_%28film%29.jpg" name="Oppenheimer" year="2023"/>
+        </>
+    );
+
+    const app = document.getElementById('app');
+    ReactDOM.createRoot(app).render(movie);
+</script>
 </body>
 </html>
