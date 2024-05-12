@@ -6,11 +6,84 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div id="app"></div>
 </body>
 <script type="text/babel">
+    const Header = () => {
+        return (
+            <header className="header">
+                <a href="#">
+                    <img src="https://www.pngitem.com/pimgs/m/26-268966_shinee-hd-png-download.png" alt="My logo"/>
+                </a>
+                <a href="#">
+                    <h1>My website</h1>
+                </a>
+            </header>
+        );
+    };
 
+    const SidebarLink = (props) => {
+        return (
+            <li><a href={props.link}>{props.linkText}</a></li>
+        )
+    }
+
+    const Sidebar = () => {
+        return (
+            <aside className="sidebar">
+                <nav>
+                    <ul>
+                        <SidebarLink link="#" linkText="Home"/>
+                        <SidebarLink link="#" linkText="Information"/>
+                        <SidebarLink link="#" linkText="Discography"/>
+                        <SidebarLink link="#" linkText="Works"/>
+                        <SidebarLink link="#" linkText="In progress"/>
+                    </ul>
+                </nav>
+            </aside>
+        );
+    };
+
+    const Content = () => {
+        return (
+            <div className="content">
+                <h2>Welcome to my website</h2>
+                <div className="contentInner">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id sagittis nisl. Aenean id fringilla justo. Aliquam blandit leo odio, ut maximus neque lobortis ut. Aenean vitae porttitor eros. Nunc bibendum malesuada ante, et blandit est. Nulla sit amet tincidunt augue. Mauris augue augue, mattis ut odio varius, condimentum dictum felis. Sed vulputate metus sit amet ultricies viverra. Sed eleifend elementum dui sed facilisis. Ut sed ultricies lectus, eu pulvinar diam. Maecenas eget dapibus sapien. Proin tempus erat eu enim congue maximus.
+                Sed vitae massa ut tortor aliquet dapibus. Donec viverra pellentesque diam, ut finibus nisi venenatis ut. Nunc in scelerisque dui, ut consectetur justo. Nullam convallis tempus consequat. Nulla vitae ipsum id neque condimentum ornare egestas varius ligula. Curabitur at mi at erat consequat sagittis et non metus. Ut finibus lobortis quam sit amet pellentesque. Pellentesque placerat sed eros vel vulputate. Nullam lobortis, diam ac ornare gravida, dui sapien tincidunt mauris, sed ultricies leo arcu eu quam. Vivamus non libero magna. Ut in varius ex, non pharetra ante. Quisque dolor nisi, rhoncus eu ultrices vitae, auctor ac mi. Vivamus est nunc, sodales id velit ullamcorper, iaculis convallis neque. Sed nec magna at nibh varius scelerisque.
+                </p>
+                <img src="https://lh3.googleusercontent.com/proxy/gfIAAuEEjhhKuSfpw2eOPZd2JGgARl8nEWFaztHDcukDXEQLuRBO0_6MLhNTRmqya62eFn-2eP9xUydn52WNt9hiQCg3Jl8XKbVWOX74s04ocnwgFaVFRr3HZtU" alt="Picture" />
+                </div>
+            </div>
+        );
+    };
+
+    const Footer = () => {
+        return (
+            <footer>
+                <p>2024 My website</p>
+                <p>All rights reserved.</p>
+            </footer>
+        );
+    };
+
+    const App = () => {
+        return (
+            <div>
+                <Header />
+                <div className="container">
+                    <Sidebar />
+                    <Content />
+                </div>
+                <Footer />
+            </div>
+        );
+    };
+
+    const app = document.getElementById('app');
+    ReactDOM.createRoot(app).render(<App />);
 </script>
 </html>
